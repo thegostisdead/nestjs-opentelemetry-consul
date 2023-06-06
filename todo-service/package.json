@@ -8,6 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "dev": "nest start --watch",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -24,6 +25,13 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.3.0",
+    "@opentelemetry/api": "^1.4.1",
+    "@opentelemetry/exporter-jaeger": "^1.13.0",
+    "@opentelemetry/instrumentation-nestjs-core": "^0.32.4",
+    "@opentelemetry/resources": "^1.13.0",
+    "@opentelemetry/semantic-conventions": "^1.13.0",
+    "@types/consul": "^0.40.0",
+    "consul": "^1.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },
