@@ -9,26 +9,30 @@ async function bootstrap() {
   await otelSDK.start();
 
   const consul = new Discovery({
-    host: 'localhost',
+    host: 'consul',
     port: '8500',
     secure: false,
   });
 
   await consul.register({
     node: 'todo-service',
-    address: 'localhost',
+    address: 'app',
     service: {
       service: 'todo-service',
       tags: ['todo'],
-      address: 'localhost',
+      address: 'app',
       port: 3000,
     },
     check: {
-        http: 'http://localhost:3000/health',
+      node: 'todo-service',
+      name: 'todo-service',
+      definition: {
+        http: 'http://app:3000/health',
         interval: '10s',
+        tlsskipverify: false,
         timeout: '5s',
-  
-    }
+      },
+    },
   });
 
   const app = await NestFactory.create(AppModule);

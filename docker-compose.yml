@@ -1,8 +1,7 @@
 services:
   app:
-    image: alpercitak/nest-pnpm-docker
     build:
-      context: .
+      context: ./todo-service/
       dockerfile: Dockerfile
       target: deploy
     ports:
